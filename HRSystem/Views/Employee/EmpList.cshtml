@@ -1,0 +1,36 @@
+﻿@model HRSystem.Models.VMemp
+@{
+    ViewBag.Title = "EmpList";
+    Layout = "~/Views/Shared/HomeLayout.cshtml";
+}
+
+@section Section1{
+<form action="search" method="post">
+    @{ 
+        var grid = new WebGrid(Model.listEmployee);
+    }
+    <h2>Employee List</h2>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-2 col-xs-2">
+                @Html.LabelFor(a => a.emp.FirstName)
+            </div>
+            <div class="col-lg-3 col-xs-2">
+                @Html.TextBoxFor(a => a.emp.FirstName)
+            </div>
+            <div class="col-lg-2 col-xs-12">
+                <input type="submit"  value="Search"/>
+            </div>
+        </div>
+        <div class="row">
+            @grid.GetHtml(columns: grid.Columns( grid.Column("FirstName", "First Name"),
+                                                 grid.Column("LastName", "Last Name"),
+                                                 grid.Column("Phone", "Phone"),
+                                                 grid.Column("salary", "Salary"),
+                                                 grid.Column(format: @<text> <a href="#">Edit</a>  | <a href="#">Delete</a> </text>)
+                                               )
+                         )
+        </div>
+    </div>
+</form>
+}

@@ -1,0 +1,38 @@
+﻿@model HRSystem.Models.VMdept
+@{
+    ViewBag.Title = "Department";
+    Layout = "~/Views/Shared/HomeLayout.cshtml";
+}
+
+
+
+@section Section1
+    {
+    <form action="savedata" method="post">
+            
+        <div class="row">
+            <h2>Department</h2>
+        </div>
+        
+        <div class="row">
+            <div class="col-lg-2 col-xs-2">
+                @Html.LabelFor(a => a.Dept.name)
+            </div>
+            <div class="col-lg-4 col-xs-10">
+                @Html.TextBoxFor(a => a.Dept.name)
+                @Html.ValidationMessageFor(a => a.Dept.name)
+            </div>
+            <div class="col-lg-2 col-xs-2">
+                @Html.LabelFor(model => model.Dept.Description)
+            </div>
+            <div class="col-lg-4col-xs-10">
+                @Html.TextBoxFor(a => a.Dept.Description)
+            </div>
+        </div>
+        <div class="row">
+            <input type="submit" value="SAVE" />
+        </div>
+        
+    </form>
+}
+

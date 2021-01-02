@@ -1,0 +1,129 @@
+﻿@model HRSystem.Models.VMemp
+@{
+    ViewBag.Title = "Emp";
+    Layout = "~/Views/Shared/HomeLayout.cshtml";
+}
+
+
+
+
+@section  Section1{
+<form action="savedata" method="post" enctype="multipart/form-data">
+
+    <div class="row">
+        <h2>New Employee</h2>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-2 col-xs-2">
+            @Html.LabelFor(a => a.emp.FirstName)
+        </div>
+        <div class="col-lg-4 col-xs-10">
+            @Html.TextBoxFor(a => a.emp.FirstName)
+        </div>
+        <div class="col-lg-2 col-xs-2">
+            @Html.LabelFor(a => a.emp.LastName)
+        </div>
+        <div class="col-lg-4 col-xs-10">
+            @Html.TextBoxFor(a => a.emp.LastName)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-2 col-xs-2">
+            @Html.LabelFor(a => a.emp.Phone)
+        </div>
+        <div class="col-lg-4 col-xs-10">
+            @Html.TextBoxFor(a => a.emp.Phone)
+        </div>
+        <div class="col-lg-2 col-xs-2">
+            @Html.LabelFor(a => a.emp.Gender_id)
+        </div>
+        <div class="col-lg-4 col-xs-10">
+            @Html.DropDownListFor(a => a.emp.Gender_id,
+            new List<SelectListItem>{
+    new SelectListItem{ Text="Male", Value = "1" },
+    new SelectListItem{ Text="Female", Value = "2" },
+ }, "select")
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-lg-2 col-xs-2">
+            @Html.LabelFor(a => a.emp.Country_id)
+        </div>
+        <div class="col-lg-4 col-xs-10">
+            @Html.DropDownListFor(a => a.emp.Country_id, new SelectList(Model.lisCount, "ID", "Name"))
+        </div>
+        <div class="col-lg-2 col-xs-2">
+            @Html.LabelFor(a => a.emp.City_id)
+        </div>
+        <div class="col-lg-4 col-xs-10">
+            @Html.DropDownListFor(a => a.emp.City_id, new SelectList(Model.lisCity, "ID", "Name"), "select")
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-lg-2 col-xs-2">
+            @Html.LabelFor(a => a.emp.Address)
+        </div>
+        <div class="col-lg-4 col-xs-10">
+            @Html.TextBoxFor(a => a.emp.Address)
+        </div>
+        <div class="col-lg-2 col-xs-2">
+            @Html.LabelFor(a => a.emp.Email)
+        </div>
+        <div class="col-lg-4 col-xs-10">
+            @Html.TextBoxFor(a => a.emp.Email)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-2 col-xs-2">
+            @Html.LabelFor(a => a.emp.salary)
+        </div>
+        <div class="col-lg-4 col-xs-10">
+            @Html.TextBoxFor(a => a.emp.salary)
+        </div>
+        <div class="col-lg-2 col-xs-2">
+            @Html.LabelFor(a => a.emp.ExpectedSalary)
+        </div>
+        <div class="col-lg-4 col-xs-10">
+            @Html.TextBoxFor(a => a.emp.ExpectedSalary)
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-lg-2 col-xs-2">
+            @Html.LabelFor(a => a.emp.Department_id)
+        </div>
+        <div class="col-lg-4 col-xs-10">
+            @Html.DropDownListFor(a => a.emp.Department_id, new SelectList(Model.listDepartment, "ID", "Name"), "select")
+        </div>
+        <div class="col-lg-2 col-xs-2">
+            @Html.LabelFor(a => a.emp.hireDate)
+        </div>
+        <div class="col-lg-4 col-xs-10">
+            @Html.TextBoxFor(a => a.emp.hireDate)
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-lg-2 col-xs-2">
+            @Html.LabelFor(a => a.emp.ImagePath)
+        </div>
+        <div class="col-lg-2 col-xs-10">
+            @Html.TextBoxFor(a => a.emp.ImagePath, htmlAttributes: new { @type = "file", @Name = "emp.ImageFile" })
+        </div>
+    </div>
+    <div class="row">
+        <input type="submit" value="SAVE" />
+    </div>
+
+
+</form>
+}
+
+
